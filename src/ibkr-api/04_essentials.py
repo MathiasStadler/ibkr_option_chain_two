@@ -18,13 +18,13 @@ class TestApp(EClient,EWrapper):
         return self.orderid
     
     def currentTime(self,time):
-        print(time)
+        print(f"Time {time}")
 
         
 
     def error(self,reqId,errorCode,errorString):
                                                
-        print(f"reqID:(reqId),errorCode: {errorCode},errorString: {errorString}")
+        print(f"reqID=>{reqId},errorCode=>{errorCode},errorString=>{errorString}")
     
 app = TestApp()
 app.connect("127.0.0.1",7496,0)
