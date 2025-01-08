@@ -1,4 +1,8 @@
 # %load ibkr-api/account_summary.py
+# https://robotwealth.com/getting-started-with-the-interactive-brokers-native-api/
+
+# option example
+# https://docs.sravz.com/docs/tech/ibkr/ibkr-python-api/
 from threading import Thread, Event
 import time
 from typing import Any
@@ -6,6 +10,8 @@ from ibapi.wrapper import EWrapper
 from ibapi.client import EClient
 from ibapi.common import *
 from ibapi.account_summary_tags import AccountSummaryTags
+
+
 
 
 class ibapp(EClient, EWrapper):
