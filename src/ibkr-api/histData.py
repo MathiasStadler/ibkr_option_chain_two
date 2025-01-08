@@ -30,12 +30,12 @@ class TestApp(EClient, EWrapper):
         print(datetime.datetime.fromtimestamp(int(headTimeStamp)))
         self.cancelHeadTimeStamp(reqId)
 
-    def tickPrice(self,reqId,tickerTyp,price,attrib):
-        print("reqId:{reqId}, tickerType: {TickTypeEnum.toStr(tickType)},price:{price},attrib: {attrib} ")
+    def tickPrice(self,reqId,tickType,price,attrib):
+        print(f"reqId:{reqId}, tickerType: {TickTypeEnum.to_str(tickType)},price:{price},attrib: {attrib} ")
 
     def tickSize( self, reqId, tickType,size):
-         print("reqId:{reqId}, tickerType: {TickTypeEnum.toStr(tickType)},size:{size}")
-         
+         print(f"reqId:{reqId}, tickerType: {TickTypeEnum.to_str(tickType)},size:{size}")
+
 
 
 
@@ -46,12 +46,14 @@ threading.Thread(target=app.run).start()
 time.sleep(1)
 
 mycontract = Contract()
-mycontract.symbol = "AAPL"
+mycontract.symbol = "IONQ"
 mycontract.secType = "STK"
 mycontract.exchange = "SMART"
 mycontract.currency = "USD"
 
 app.reqMarketDataType(3)
+app.reqMktData(app.nextId(),mycontract,"232",False,False,[])
+
 
 # app.reqHeadTimeStamp(app.nextId(), mycontract, "TRADES", 1, 2)
 
